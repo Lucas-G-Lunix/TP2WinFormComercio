@@ -21,15 +21,15 @@ namespace AppComercio
             {
                 conexion.ConnectionString = "server=localhost\\SQLEXPRESS;database=CATALOGO_P3_DB;Trusted_Connection=True";
                 command.CommandType = System.Data.CommandType.Text;
-                command.CommandText = "SELECT Codigo, Nombre, Descripcion FROM ARTICULOS";
+                command.CommandText = "SELECT Id, Codigo, Nombre, Descripcion FROM ARTICULOS";
                 command.Connection = conexion;
-
                 conexion.Open();
                 lector = command.ExecuteReader();
 
                 while (lector.Read())
                 {
                     Articulo articuloAux = new Articulo();
+                    articuloAux.Id = int.Parse(lector.GetInt32(0).ToString());
                     articuloAux.CodigoArticulo = (string)lector["Codigo"];
                     articuloAux.Nombre = (string)lector["Nombre"];
                     articuloAux.Descripcion = (string)lector["Descripcion"];

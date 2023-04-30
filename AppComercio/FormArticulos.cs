@@ -12,6 +12,7 @@ namespace AppComercio
 {
     public partial class FormArticulos : Form
     {
+        private List<Articulo> listaArticulos;
         public FormArticulos()
         {
             InitializeComponent();
@@ -20,7 +21,8 @@ namespace AppComercio
         private void dgvArticulos_Load(object sender, EventArgs e)
         {
             ArticulosDatos datos = new ArticulosDatos();
-            dgvArticulos.DataSource = datos.listar();
+            listaArticulos = datos.listar();
+            dgvArticulos.DataSource = listaArticulos;
         }
     }
 }
