@@ -1,0 +1,11 @@
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\bin\Debug\AppComercio.exe.config
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\bin\Debug\AppComercio.exe
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\bin\Debug\AppComercio.pdb
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.csproj.AssemblyReference.cache
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.csproj.SuggestedBindingRedirects.cache
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.FormPrincipal.resources
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.Properties.Resources.resources
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.csproj.GenerateResource.cache
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.csproj.CoreCompileInputs.cache
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.exe
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.pdb
