@@ -9,3 +9,4 @@ C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComer
 C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.csproj.CoreCompileInputs.cache
 C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.exe
 C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.pdb
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.FormArticulos.resources

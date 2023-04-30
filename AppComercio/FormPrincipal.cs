@@ -16,5 +16,11 @@ namespace AppComercio
         {
             InitializeComponent();
         }
+
+        private void btnListadoArticulos_Click(object sender, EventArgs e)
+        {
+            FormArticulos articulos = new FormArticulos();
+            articulos.ShowDialog();
+        }
     }
 }
