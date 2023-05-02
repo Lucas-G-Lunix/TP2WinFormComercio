@@ -1,0 +1,12 @@
+C:\Users\leoo_\OneDrive\Escritorio\FACULTAD 2023\Programación 3\primera app winform\TP2WinFormComercio-main\Dominio\bin\Debug\Dominio.dll
+C:\Users\leoo_\OneDrive\Escritorio\FACULTAD 2023\Programación 3\primera app winform\TP2WinFormComercio-main\Dominio\bin\Debug\Dominio.pdb
+C:\Users\leoo_\OneDrive\Escritorio\FACULTAD 2023\Programación 3\primera app winform\TP2WinFormComercio-main\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\leoo_\OneDrive\Escritorio\FACULTAD 2023\Programación 3\primera app winform\TP2WinFormComercio-main\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\leoo_\OneDrive\Escritorio\FACULTAD 2023\Programación 3\primera app winform\TP2WinFormComercio-main\Dominio\obj\Debug\Dominio.dll
+C:\Users\leoo_\OneDrive\Escritorio\FACULTAD 2023\Programación 3\primera app winform\TP2WinFormComercio-main\Dominio\obj\Debug\Dominio.pdb
+C:\Users\leoo_\Source\Repos\Lucas-G-Lunix\TP2WinFormComercio\Dominio\bin\Debug\Dominio.dll
+C:\Users\leoo_\Source\Repos\Lucas-G-Lunix\TP2WinFormComercio\Dominio\bin\Debug\Dominio.pdb
+C:\Users\leoo_\Source\Repos\Lucas-G-Lunix\TP2WinFormComercio\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\leoo_\Source\Repos\Lucas-G-Lunix\TP2WinFormComercio\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\leoo_\Source\Repos\Lucas-G-Lunix\TP2WinFormComercio\Dominio\obj\Debug\Dominio.dll
+C:\Users\leoo_\Source\Repos\Lucas-G-Lunix\TP2WinFormComercio\Dominio\obj\Debug\Dominio.pdb
