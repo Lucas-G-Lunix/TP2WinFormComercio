@@ -16,3 +16,12 @@ C:\Users\leoo_\Source\Repos\Lucas-G-Lunix\TP2WinFormComercio\Negocio\obj\Debug\N
 C:\Users\leoo_\Source\Repos\Lucas-G-Lunix\TP2WinFormComercio\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 C:\Users\leoo_\Source\Repos\Lucas-G-Lunix\TP2WinFormComercio\Negocio\obj\Debug\Negocio.dll
 C:\Users\leoo_\Source\Repos\Lucas-G-Lunix\TP2WinFormComercio\Negocio\obj\Debug\Negocio.pdb
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\Negocio\bin\Debug\Negocio.dll
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\Negocio\bin\Debug\Negocio.pdb
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\Negocio\bin\Debug\Dominio.dll
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\Negocio\bin\Debug\Dominio.pdb
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\Negocio\obj\Debug\Negocio.dll
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\Negocio\obj\Debug\Negocio.pdb

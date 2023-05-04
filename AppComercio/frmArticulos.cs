@@ -14,8 +14,8 @@ namespace AppComercio
 {
     public partial class frmArticulos : Form
     {
-
         private List<Articulo> listaArticulo;
+        
         public frmArticulos()
         {
             InitializeComponent();
@@ -30,23 +30,16 @@ namespace AppComercio
             cboCampo.Items.Add("Marca");
             cboCampo.Items.Add("Categoria");
         }
-
-       
-        private void lblTitulo_Click(object sender, EventArgs e)
+        
+        private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
         {
-
+            if (dgvArticulo.CurrentRow != null)
+            {
+                Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.ImagenURL);
+            }
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void cargarGrilla()
         {
             try
@@ -62,23 +55,16 @@ namespace AppComercio
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.ToString() + "falla grilla ");
+                MessageBox.Show(ex.ToString() + "falla grilla");
             }
         }
-        private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvArticulo.CurrentRow != null)
-            {
-                Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
-                cargarImagen(seleccionado.ImagenURL);
-            }
-        }
-
+        
         private void ocultarColumnas()
         {
             dgvArticulo.Columns["ImagenURL"].Visible = false;
             dgvArticulo.Columns["Id"].Visible = false;
         }
+        
         private void cargarImagen(string imagen)
         {
             try
@@ -87,33 +73,16 @@ namespace AppComercio
             }
             catch (Exception)
             {
-                pictureBoxArticulo.Load("https://aramar.com/wp-content/uploads/2017/05/aramar-suministros-para-el-vidrio-cristal-sin-imagen-disponible.jpg");
+                pictureBoxArticulo.Load("https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled.png");
 
             }
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void btnAgregarArticulo_Click(object sender, EventArgs e)
         {
-            
-                frmAltaArticulo alta = new frmAltaArticulo();
-                alta.ShowDialog();
-                cargarGrilla();
-
-            
+            frmAltaArticulo alta = new frmAltaArticulo();
+            alta.ShowDialog();
+            cargarGrilla();
         }
     }
 }

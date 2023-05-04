@@ -16,8 +16,8 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(" select Codigo, A.Nombre, A.Descripcion, A.Precio, A.IdCategoria, A.IdMarca, A.ImagenURL, A.iD, M.Id IdMarca, M.Descripcion Marca, C.Id IdCategoria, C.Descripcion Categoria " +
-                   "from ARTICULOS A left join MARCAS M on A.IdMarca = M.Id left join CATEGORIAS c on a.IdCategoria = C.Id ");
+                datos.setearConsulta(" SELECT A.Id, Codigo, A.Nombre, A.Descripcion, A.Precio, A.IdCategoria, A.IdMarca, I.ImagenURL, M.Id IdMarca, M.Descripcion Marca, C.Id IdCategoria, C.Descripcion Categoria " +
+                   "FROM ARTICULOS A LEFT JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id LEFT JOIN IMAGENES I ON I.Id = A.Id");
                 datos.ejecutarLecura();
                 while (datos.Lector.Read())
                 {
@@ -28,7 +28,6 @@ namespace Negocio
                         aux.Nombre = (string)datos.Lector["Nombre"];
                     if (!(datos.Lector["Descripcion"] is DBNull))
                         aux.Descripcion = (string)datos.Lector["Descripcion"];
-
                     if (!(datos.Lector["Precio"] is DBNull))
                         aux.Precio = (decimal)datos.Lector["Precio"];
                     if (!(datos.Lector["ImagenURL"] is DBNull))
@@ -39,6 +38,10 @@ namespace Negocio
                     aux.Categoria.IdCategoria = (int)datos.Lector["IdCategoria"];
                     if (!(datos.Lector["Categoria"] is DBNull))
                         aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    else
+                    {
+                        aux.Categoria.Descripcion = "Sin Categoria";
+                    }
 
                     aux.Marca = new Marca();
                     aux.Marca.Idmarca = (int)datos.Lector["IdMarca"];
