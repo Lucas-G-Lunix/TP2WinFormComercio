@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdministrar));
             this.dgvMarcas = new System.Windows.Forms.DataGridView();
             this.dgvCategorias = new System.Windows.Forms.DataGridView();
             this.lblMarcas = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.dgvMarcas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvMarcas.Location = new System.Drawing.Point(12, 53);
             this.dgvMarcas.Name = "dgvMarcas";
-            this.dgvMarcas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvMarcas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMarcas.Size = new System.Drawing.Size(200, 300);
             this.dgvMarcas.TabIndex = 0;
@@ -89,7 +89,7 @@
             this.btnAgregarMarcas.Location = new System.Drawing.Point(12, 359);
             this.btnAgregarMarcas.Name = "btnAgregarMarcas";
             this.btnAgregarMarcas.Size = new System.Drawing.Size(113, 23);
-            this.btnAgregarMarcas.TabIndex = 4;
+            this.btnAgregarMarcas.TabIndex = 0;
             this.btnAgregarMarcas.Text = "Agregar Marca";
             this.btnAgregarMarcas.UseVisualStyleBackColor = true;
             this.btnAgregarMarcas.Click += new System.EventHandler(this.btnAgregarMarcas_Click);
@@ -99,7 +99,7 @@
             this.btnModificarMarca.Location = new System.Drawing.Point(12, 388);
             this.btnModificarMarca.Name = "btnModificarMarca";
             this.btnModificarMarca.Size = new System.Drawing.Size(113, 23);
-            this.btnModificarMarca.TabIndex = 5;
+            this.btnModificarMarca.TabIndex = 1;
             this.btnModificarMarca.Text = "Modificar Marca";
             this.btnModificarMarca.UseVisualStyleBackColor = true;
             this.btnModificarMarca.Click += new System.EventHandler(this.btnModificarMarca_Click);
@@ -109,7 +109,7 @@
             this.btnEliminarMarca.Location = new System.Drawing.Point(12, 417);
             this.btnEliminarMarca.Name = "btnEliminarMarca";
             this.btnEliminarMarca.Size = new System.Drawing.Size(113, 23);
-            this.btnEliminarMarca.TabIndex = 6;
+            this.btnEliminarMarca.TabIndex = 2;
             this.btnEliminarMarca.Text = "Eliminar Marca";
             this.btnEliminarMarca.UseVisualStyleBackColor = true;
             this.btnEliminarMarca.Click += new System.EventHandler(this.btnEliminarMarca_Click);
@@ -119,7 +119,7 @@
             this.btnEliminarCategoria.Location = new System.Drawing.Point(232, 417);
             this.btnEliminarCategoria.Name = "btnEliminarCategoria";
             this.btnEliminarCategoria.Size = new System.Drawing.Size(113, 23);
-            this.btnEliminarCategoria.TabIndex = 9;
+            this.btnEliminarCategoria.TabIndex = 5;
             this.btnEliminarCategoria.Text = "Eliminar Categoría";
             this.btnEliminarCategoria.UseVisualStyleBackColor = true;
             this.btnEliminarCategoria.Click += new System.EventHandler(this.btnEliminarCategoria_Click);
@@ -129,7 +129,7 @@
             this.btnModificarCategoria.Location = new System.Drawing.Point(232, 388);
             this.btnModificarCategoria.Name = "btnModificarCategoria";
             this.btnModificarCategoria.Size = new System.Drawing.Size(113, 23);
-            this.btnModificarCategoria.TabIndex = 8;
+            this.btnModificarCategoria.TabIndex = 4;
             this.btnModificarCategoria.Text = "Modificar Categoría";
             this.btnModificarCategoria.UseVisualStyleBackColor = true;
             this.btnModificarCategoria.Click += new System.EventHandler(this.btnModificarCategoria_Click);
@@ -139,7 +139,7 @@
             this.btnAgregarCategoria.Location = new System.Drawing.Point(232, 359);
             this.btnAgregarCategoria.Name = "btnAgregarCategoria";
             this.btnAgregarCategoria.Size = new System.Drawing.Size(113, 23);
-            this.btnAgregarCategoria.TabIndex = 7;
+            this.btnAgregarCategoria.TabIndex = 3;
             this.btnAgregarCategoria.Text = "Agregar Categoría";
             this.btnAgregarCategoria.UseVisualStyleBackColor = true;
             this.btnAgregarCategoria.Click += new System.EventHandler(this.btnAgregarCategoria_Click);
@@ -149,7 +149,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(444, 461);
+            this.ClientSize = new System.Drawing.Size(446, 461);
             this.Controls.Add(this.btnEliminarCategoria);
             this.Controls.Add(this.btnModificarCategoria);
             this.Controls.Add(this.btnAgregarCategoria);
@@ -160,7 +160,9 @@
             this.Controls.Add(this.lblMarcas);
             this.Controls.Add(this.dgvCategorias);
             this.Controls.Add(this.dgvMarcas);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAdministrar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAdministrar";
             this.Load += new System.EventHandler(this.frmAdministrar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarcas)).EndInit();

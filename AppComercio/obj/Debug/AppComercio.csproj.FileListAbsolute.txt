@@ -48,3 +48,4 @@ C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComer
 C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.frmArticulos.resources
 C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.csproj.CopyComplete
 C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.frmAdministrar.resources
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.frmAdmnistrarMarca.resources

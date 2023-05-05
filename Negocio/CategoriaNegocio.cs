@@ -32,5 +32,60 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+        public void agregar(Categoria nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string valores = "values('" + nuevo.Descripcion + "')";
+                datos.setearConsulta("insert into CATEGORIAS (Descripcion) " + valores);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            } 
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void modificar(Categoria categoria)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("update CATEGORIAS set Descripcion = @Descripcion where Id = @Id");
+                datos.setearParametro("@Descripcion", categoria.Descripcion);
+                datos.setearParametro("@Id", categoria.Id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            } 
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void eliminar(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("delete from CATEGORIAS where Id = @Id");
+                datos.setearParametro("@Id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            } 
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
