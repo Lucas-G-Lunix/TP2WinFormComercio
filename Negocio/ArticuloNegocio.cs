@@ -64,20 +64,30 @@ namespace Negocio
 
         public void agregar(Articulo nuevo)
         {
-
-            AccesoDatos datos = new AccesoDatos();
-
             try
             {
-                datos.setearConsulta(" insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenURL, Precio) Values ('" + nuevo.Codigo + "' , '" + nuevo.Nombre + "', '" + nuevo.Descripcion + "' , " + nuevo.Marca.Id + "," + nuevo.Categoria.Id + ", '" + nuevo.ImagenURL + "' ," + nuevo.Precio + ")");
+                AccesoDatos datos = new AccesoDatos();
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio)"+
+                    " VALUES ('"+nuevo.Codigo+"', '"+nuevo.Nombre+"', '"+nuevo.Descripcion+ "', @marcaId, @categoriaId, @precio)");
+                datos.setearParametro("@marcaId", nuevo.Marca.Id);
+                datos.setearParametro("@categoriaId", nuevo.Categoria.Id);
+                datos.setearParametro("@precio", nuevo.Precio);
                 datos.ejecutarAccion();
+                datos.cerrarConexion();
+                datos = new AccesoDatos();
+                nuevo.Id = datos.ultimoId();
+                datos.cerrarConexion();
+                datos = new AccesoDatos();
+                datos.setearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@idArticulo, '"+nuevo.ImagenURL+"')");
+                datos.setearParametro("@idArticulo", nuevo.Id);
+                datos.ejecutarAccion();
+                datos.cerrarConexion();
             }
 
             catch (Exception ex)
             {
                 throw ex;
             }
-            finally { datos.cerrarConexion(); }
         }
 
         public void modificar(Articulo art)
@@ -85,15 +95,19 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("update ARTICULOS set Codigo = @codigo, Nombre = @nombre, Descripcion = @desc, IdMarca = @idm, IdCategoria = @idc, ImagenURL = @img, Precio = @precio Where Id = @id");
+                datos.setearConsulta("UPDATE ARTICULOS SET"
+                    + "Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion, IdMarca = @idMarca, IdCategoria = @idCategoria, Precio = @precio WHERE Id = @id");
                 datos.setearParametro("@codigo", art.Codigo);
                 datos.setearParametro("@nombre", art.Nombre);
-                datos.setearParametro("@desc", art.Descripcion);
-                datos.setearParametro("@idm", art.Marca.Id);
-                datos.setearParametro("@idc", art.Categoria.Id);
-                datos.setearParametro("@img", art.ImagenURL);
+                datos.setearParametro("@descripcion", art.Descripcion);
+                datos.setearParametro("@idMarca", art.Marca.Id);
+                datos.setearParametro("@idCategoria", art.Categoria.Id);
                 datos.setearParametro("@precio", art.Precio);
                 datos.setearParametro("@id", art.Id);
+                datos.ejecutarAccion();
+                datos.setearConsulta("UPDATE IMAGENES SET ImagenUrl = '@imagenURL' WHERE IdArticulo = @idArticulo");
+                datos.setearParametro("@imagenURL", art.ImagenURL);
+                datos.setearParametro("@idArticulo", art.Id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -113,10 +127,11 @@ namespace Negocio
             try
             {
                 AccesoDatos datos = new AccesoDatos();
-                datos.setearConsulta("delete from ARTICULOS where id = @id");
+                datos.setearConsulta("DELETE FROM ARTICULOS WHERE id = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
-
+                datos.setearConsulta("DELETE FROM IMAGENES WHERE IdArticulo = @id");
+                datos.setearParametro("@id", id);
             }
             catch (Exception ex)
             {

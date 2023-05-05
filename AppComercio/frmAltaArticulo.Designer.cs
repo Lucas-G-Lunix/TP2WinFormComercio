@@ -150,6 +150,7 @@
             this.txtUrlImagen.Name = "txtUrlImagen";
             this.txtUrlImagen.Size = new System.Drawing.Size(140, 20);
             this.txtUrlImagen.TabIndex = 11;
+            this.txtUrlImagen.TextChanged += new System.EventHandler(this.txtUrlImagen_TextChanged);
             // 
             // txtPrecio
             // 
@@ -169,9 +170,11 @@
             // 
             // pbxArticulo
             // 
+            this.pbxArticulo.BackColor = System.Drawing.Color.DarkSlateGray;
             this.pbxArticulo.Location = new System.Drawing.Point(333, 40);
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(300, 300);
+            this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxArticulo.TabIndex = 14;
             this.pbxArticulo.TabStop = false;
             // 
@@ -186,6 +189,7 @@
             this.btnAceptar.TabIndex = 15;
             this.btnAceptar.Text = "ACEPTAR";
             this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 

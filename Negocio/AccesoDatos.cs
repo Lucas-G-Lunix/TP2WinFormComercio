@@ -77,6 +77,18 @@ namespace Negocio
                     throw ex;
                 }
             }
+
+        public int ultimoId()
+        {
+            setearConsulta("SELECT Id FROM ARTICULOS WHERE Id = (SELECT IDENT_CURRENT('ARTICULOS'))");
+            ejecutarLecura();
+            int id = 0;
+            if (lector.Read())
+            {
+                id = (int)lector["Id"];
+            }
+            return id;
         }
+    }
     
 }
