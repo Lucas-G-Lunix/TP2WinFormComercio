@@ -106,5 +106,10 @@ namespace AppComercio
                 throw;
             }
         }
+
+        private void btnModificarArticulos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

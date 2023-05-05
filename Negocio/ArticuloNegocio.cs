@@ -17,7 +17,7 @@ namespace Negocio
             try
             {
                 datos.setearConsulta(" SELECT A.Id, Codigo, A.Nombre, A.Descripcion, A.Precio, A.IdCategoria, A.IdMarca, I.ImagenURL, M.Id IdMarca, M.Descripcion Marca, C.Id IdCategoria, C.Descripcion Categoria " +
-                   "FROM ARTICULOS A LEFT JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id LEFT JOIN IMAGENES I ON I.Id = A.Id");
+                   "FROM ARTICULOS A LEFT JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id LEFT JOIN IMAGENES I ON I.IdArticulo = A.Id");
                 datos.ejecutarLecura();
                 while (datos.Lector.Read())
                 {
@@ -47,6 +47,10 @@ namespace Negocio
                     aux.Marca.Id = (int)datos.Lector["IdMarca"];
                     if (!(datos.Lector["Marca"] is DBNull))
                         aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+                    else
+                    {
+                        aux.Marca.Descripcion = "Sin Marca";
+                    }
 
 
                     lista.Add(aux);
@@ -130,8 +134,12 @@ namespace Negocio
                 datos.setearConsulta("DELETE FROM ARTICULOS WHERE id = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
+                datos.cerrarConexion();
+                datos = new AccesoDatos();
                 datos.setearConsulta("DELETE FROM IMAGENES WHERE IdArticulo = @id");
                 datos.setearParametro("@id", id);
+                datos.ejecutarAccion();
+                datos.cerrarConexion();
             }
             catch (Exception ex)
             {
