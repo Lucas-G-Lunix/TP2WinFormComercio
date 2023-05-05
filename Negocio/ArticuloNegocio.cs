@@ -35,7 +35,7 @@ namespace Negocio
 
                     aux.Categoria = new Categoria();
 
-                    aux.Categoria.IdCategoria = (int)datos.Lector["IdCategoria"];
+                    aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
                     if (!(datos.Lector["Categoria"] is DBNull))
                         aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
                     else
@@ -44,7 +44,7 @@ namespace Negocio
                     }
 
                     aux.Marca = new Marca();
-                    aux.Marca.Idmarca = (int)datos.Lector["IdMarca"];
+                    aux.Marca.Id = (int)datos.Lector["IdMarca"];
                     if (!(datos.Lector["Marca"] is DBNull))
                         aux.Marca.Descripcion = (string)datos.Lector["Marca"];
 
@@ -69,7 +69,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(" insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenURL, Precio) Values ('" + nuevo.Codigo + "' , '" + nuevo.Nombre + "', '" + nuevo.Descripcion + "' , " + nuevo.Marca.Idmarca + "," + nuevo.Categoria.IdCategoria + ", '" + nuevo.ImagenURL + "' ," + nuevo.Precio + ")");
+                datos.setearConsulta(" insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenURL, Precio) Values ('" + nuevo.Codigo + "' , '" + nuevo.Nombre + "', '" + nuevo.Descripcion + "' , " + nuevo.Marca.Id + "," + nuevo.Categoria.Id + ", '" + nuevo.ImagenURL + "' ," + nuevo.Precio + ")");
                 datos.ejecutarAccion();
             }
 
@@ -80,10 +80,6 @@ namespace Negocio
             finally { datos.cerrarConexion(); }
         }
 
-
-
-
-
         public void modificar(Articulo art)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -93,8 +89,8 @@ namespace Negocio
                 datos.setearParametro("@codigo", art.Codigo);
                 datos.setearParametro("@nombre", art.Nombre);
                 datos.setearParametro("@desc", art.Descripcion);
-                datos.setearParametro("@idm", art.Marca.Idmarca);
-                datos.setearParametro("@idc", art.Categoria.IdCategoria);
+                datos.setearParametro("@idm", art.Marca.Id);
+                datos.setearParametro("@idc", art.Categoria.Id);
                 datos.setearParametro("@img", art.ImagenURL);
                 datos.setearParametro("@precio", art.Precio);
                 datos.setearParametro("@id", art.Id);

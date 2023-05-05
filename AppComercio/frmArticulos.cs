@@ -48,7 +48,7 @@ namespace AppComercio
                 listaArticulo = negocio.listar();
                 dgvArticulo.DataSource = listaArticulo;
                 ocultarColumnas();
-                pictureBoxArticulo.Load(listaArticulo[0].ImagenURL);
+                pbxArticulo.Load(listaArticulo[0].ImagenURL);
 
 
             }
@@ -69,11 +69,11 @@ namespace AppComercio
         {
             try
             {
-                pictureBoxArticulo.Load(imagen);
+                pbxArticulo.Load(imagen);
             }
             catch (Exception)
             {
-                pictureBoxArticulo.Load("https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled.png");
+                pbxArticulo.Load("https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled.png");
 
             }
         }
