@@ -16,7 +16,10 @@ namespace AppComercio
 {
     public partial class frmAltaArticulo : Form
     {
-       
+        public frmAltaArticulo()
+        {
+            InitializeComponent();
+        }
 
     }
 }

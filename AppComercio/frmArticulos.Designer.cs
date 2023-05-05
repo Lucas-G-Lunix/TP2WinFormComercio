@@ -53,7 +53,7 @@
             this.btnEliminarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminarArticulo.BackColor = System.Drawing.Color.LightCoral;
             this.btnEliminarArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarArticulo.Location = new System.Drawing.Point(807, 579);
+            this.btnEliminarArticulo.Location = new System.Drawing.Point(790, 583);
             this.btnEliminarArticulo.Name = "btnEliminarArticulo";
             this.btnEliminarArticulo.Size = new System.Drawing.Size(187, 36);
             this.btnEliminarArticulo.TabIndex = 0;
@@ -65,7 +65,7 @@
             this.btnAgregarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAgregarArticulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnAgregarArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarArticulo.Location = new System.Drawing.Point(27, 579);
+            this.btnAgregarArticulo.Location = new System.Drawing.Point(27, 583);
             this.btnAgregarArticulo.Name = "btnAgregarArticulo";
             this.btnAgregarArticulo.Size = new System.Drawing.Size(187, 36);
             this.btnAgregarArticulo.TabIndex = 2;
@@ -78,7 +78,7 @@
             this.btnModificarArticulos.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnModificarArticulos.BackColor = System.Drawing.Color.Gold;
             this.btnModificarArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarArticulos.Location = new System.Drawing.Point(417, 579);
+            this.btnModificarArticulos.Location = new System.Drawing.Point(409, 583);
             this.btnModificarArticulos.Name = "btnModificarArticulos";
             this.btnModificarArticulos.Size = new System.Drawing.Size(187, 36);
             this.btnModificarArticulos.TabIndex = 3;
@@ -120,7 +120,7 @@
             // 
             this.pictureBoxArticulo.Location = new System.Drawing.Point(686, 173);
             this.pictureBoxArticulo.Name = "pictureBoxArticulo";
-            this.pictureBoxArticulo.Size = new System.Drawing.Size(308, 290);
+            this.pictureBoxArticulo.Size = new System.Drawing.Size(300, 300);
             this.pictureBoxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxArticulo.TabIndex = 7;
             this.pictureBoxArticulo.TabStop = false;
@@ -198,7 +198,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(1021, 637);
+            this.ClientSize = new System.Drawing.Size(1004, 641);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.txtFiltroAvanzado);
