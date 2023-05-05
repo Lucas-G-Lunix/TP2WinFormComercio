@@ -45,6 +45,7 @@
             this.lblFiltro = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnFiltroAvanzado = new System.Windows.Forms.Button();
+            this.btnAdministrarMarcasCategorias = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +55,7 @@
             this.btnEliminarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminarArticulo.BackColor = System.Drawing.Color.LightCoral;
             this.btnEliminarArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarArticulo.Location = new System.Drawing.Point(786, 583);
+            this.btnEliminarArticulo.Location = new System.Drawing.Point(523, 583);
             this.btnEliminarArticulo.Name = "btnEliminarArticulo";
             this.btnEliminarArticulo.Size = new System.Drawing.Size(187, 36);
             this.btnEliminarArticulo.TabIndex = 0;
@@ -80,7 +81,7 @@
             this.btnModificarArticulos.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnModificarArticulos.BackColor = System.Drawing.Color.Gold;
             this.btnModificarArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarArticulos.Location = new System.Drawing.Point(407, 583);
+            this.btnModificarArticulos.Location = new System.Drawing.Point(275, 583);
             this.btnModificarArticulos.Name = "btnModificarArticulos";
             this.btnModificarArticulos.Size = new System.Drawing.Size(187, 36);
             this.btnModificarArticulos.TabIndex = 3;
@@ -100,7 +101,7 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft New Tai Lue", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft New Tai Lue", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(380, 9);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(241, 63);
@@ -206,12 +207,26 @@
             this.btnFiltroAvanzado.Text = "Filtrar";
             this.btnFiltroAvanzado.UseVisualStyleBackColor = true;
             // 
+            // btnAdministrarMarcasCategorias
+            // 
+            this.btnAdministrarMarcasCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAdministrarMarcasCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(181)))), ((int)(((byte)(171)))));
+            this.btnAdministrarMarcasCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdministrarMarcasCategorias.Location = new System.Drawing.Point(771, 583);
+            this.btnAdministrarMarcasCategorias.Name = "btnAdministrarMarcasCategorias";
+            this.btnAdministrarMarcasCategorias.Size = new System.Drawing.Size(187, 36);
+            this.btnAdministrarMarcasCategorias.TabIndex = 17;
+            this.btnAdministrarMarcasCategorias.Text = "Administrar Marcas/Categorias";
+            this.btnAdministrarMarcasCategorias.UseVisualStyleBackColor = false;
+            this.btnAdministrarMarcasCategorias.Click += new System.EventHandler(this.btnAdministrarMarcasCategorias_Click);
+            // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1000, 641);
+            this.Controls.Add(this.btnAdministrarMarcasCategorias);
             this.Controls.Add(this.btnFiltroAvanzado);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.lblFiltro);
@@ -260,6 +275,7 @@
         private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Button btnFiltroAvanzado;
+        private System.Windows.Forms.Button btnAdministrarMarcasCategorias;
     }
 }
 

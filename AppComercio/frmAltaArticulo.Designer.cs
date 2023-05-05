@@ -54,9 +54,10 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(15, 40);
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft New Tai Lue", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(15, 20);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(134, 13);
+            this.lblTitulo.Size = new System.Drawing.Size(276, 35);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "INGRESO DE DATOS:";
             // 
@@ -127,28 +128,28 @@
             // 
             this.txtCodigo.Location = new System.Drawing.Point(100, 68);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(140, 20);
+            this.txtCodigo.Size = new System.Drawing.Size(170, 20);
             this.txtCodigo.TabIndex = 8;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(100, 104);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(140, 20);
+            this.txtNombre.Size = new System.Drawing.Size(170, 20);
             this.txtNombre.TabIndex = 9;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(100, 140);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(140, 20);
+            this.txtDescripcion.Size = new System.Drawing.Size(170, 20);
             this.txtDescripcion.TabIndex = 10;
             // 
             // txtUrlImagen
             // 
             this.txtUrlImagen.Location = new System.Drawing.Point(100, 248);
             this.txtUrlImagen.Name = "txtUrlImagen";
-            this.txtUrlImagen.Size = new System.Drawing.Size(140, 20);
+            this.txtUrlImagen.Size = new System.Drawing.Size(170, 20);
             this.txtUrlImagen.TabIndex = 11;
             this.txtUrlImagen.TextChanged += new System.EventHandler(this.txtUrlImagen_TextChanged);
             // 
@@ -156,22 +157,23 @@
             // 
             this.txtPrecio.Location = new System.Drawing.Point(100, 286);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(140, 20);
+            this.txtPrecio.Size = new System.Drawing.Size(170, 20);
             this.txtPrecio.TabIndex = 12;
             // 
             // btnAgregarImagen
             // 
-            this.btnAgregarImagen.Location = new System.Drawing.Point(246, 247);
+            this.btnAgregarImagen.Location = new System.Drawing.Point(276, 248);
             this.btnAgregarImagen.Name = "btnAgregarImagen";
             this.btnAgregarImagen.Size = new System.Drawing.Size(27, 21);
             this.btnAgregarImagen.TabIndex = 13;
             this.btnAgregarImagen.Text = "+";
             this.btnAgregarImagen.UseVisualStyleBackColor = true;
+            this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
             // 
             // pbxArticulo
             // 
             this.pbxArticulo.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.pbxArticulo.Location = new System.Drawing.Point(333, 40);
+            this.pbxArticulo.Location = new System.Drawing.Point(334, 20);
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(300, 300);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -183,7 +185,7 @@
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAceptar.BackColor = System.Drawing.Color.YellowGreen;
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAceptar.Location = new System.Drawing.Point(21, 403);
+            this.btnAceptar.Location = new System.Drawing.Point(21, 361);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(219, 31);
             this.btnAceptar.TabIndex = 15;
@@ -196,7 +198,7 @@
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.BackColor = System.Drawing.Color.DarkSalmon;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Location = new System.Drawing.Point(427, 403);
+            this.btnCancelar.Location = new System.Drawing.Point(427, 361);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(219, 31);
             this.btnCancelar.TabIndex = 16;
@@ -210,7 +212,7 @@
             this.cbxMarca.FormattingEnabled = true;
             this.cbxMarca.Location = new System.Drawing.Point(100, 177);
             this.cbxMarca.Name = "cbxMarca";
-            this.cbxMarca.Size = new System.Drawing.Size(140, 21);
+            this.cbxMarca.Size = new System.Drawing.Size(170, 21);
             this.cbxMarca.TabIndex = 17;
             // 
             // cbxCategoria
@@ -219,7 +221,7 @@
             this.cbxCategoria.FormattingEnabled = true;
             this.cbxCategoria.Location = new System.Drawing.Point(100, 210);
             this.cbxCategoria.Name = "cbxCategoria";
-            this.cbxCategoria.Size = new System.Drawing.Size(140, 21);
+            this.cbxCategoria.Size = new System.Drawing.Size(170, 21);
             this.cbxCategoria.TabIndex = 18;
             // 
             // frmAltaArticulo
@@ -227,7 +229,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(663, 467);
+            this.ClientSize = new System.Drawing.Size(663, 425);
             this.Controls.Add(this.cbxCategoria);
             this.Controls.Add(this.cbxMarca);
             this.Controls.Add(this.btnCancelar);

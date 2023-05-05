@@ -47,3 +47,4 @@ C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\bin\Debug\Negocio.
 C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.frmAltaArticulo.resources
 C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.frmArticulos.resources
 C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.csproj.CopyComplete
+C:\Users\vboxuser\source\repos\TP2WinFormComercio\AppComercio\obj\Debug\AppComercio.frmAdministrar.resources

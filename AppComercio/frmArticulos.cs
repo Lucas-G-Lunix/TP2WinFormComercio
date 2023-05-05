@@ -124,5 +124,12 @@ namespace AppComercio
             dgvArticulo.DataSource = listaFiltrada;
             ocultarColumnas();
         }
+
+        private void btnAdministrarMarcasCategorias_Click(object sender, EventArgs e)
+        {
+            frmAdministrar administrar = new frmAdministrar();
+            administrar.ShowDialog();
+            cargarGrilla();
+        }
     }
 }

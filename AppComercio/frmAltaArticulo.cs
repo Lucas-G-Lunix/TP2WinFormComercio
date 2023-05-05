@@ -115,5 +115,10 @@ namespace AppComercio
         {
             cargarImagen(txtUrlImagen.Text);
         }
+
+        private void btnAgregarImagen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
