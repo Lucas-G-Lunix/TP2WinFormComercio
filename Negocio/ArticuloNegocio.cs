@@ -13,7 +13,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta(" SELECT A.Id, Codigo, A.Nombre, A.Descripcion, A.Precio, A.IdCategoria, A.IdMarca, I.ImagenURL, M.Id IdMarca, M.Descripcion Marca, C.Id IdCategoria, C.Descripcion Categoria " +
+                datos.setearConsulta("SELECT DISTINCT A.Id, Codigo, A.Nombre, A.Descripcion, A.Precio, A.IdCategoria, A.IdMarca, I.ImagenURL, M.Id IdMarca, M.Descripcion Marca, C.Id IdCategoria, C.Descripcion Categoria " +
                    "FROM ARTICULOS A LEFT JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id LEFT JOIN IMAGENES I ON I.IdArticulo = A.Id");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
@@ -32,7 +32,7 @@ namespace Negocio
 
                     aux.Categoria = new Categoria();
 
-                    if (!(datos.Lector["Categoria"] is DBNull))
+                    if (!(datos.Lector["IdCategoria"] is DBNull))
                     {
                         aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
                     }
@@ -44,7 +44,7 @@ namespace Negocio
                     }
 
                     aux.Marca = new Marca();
-                    if (!(datos.Lector["Categoria"] is DBNull))
+                    if (!(datos.Lector["IdMarca"] is DBNull))
                     {
                         aux.Marca.Id = (int)datos.Lector["IdMarca"];
                     }
