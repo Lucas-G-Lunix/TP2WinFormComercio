@@ -98,17 +98,52 @@ namespace AppComercio
 
         private void btnAgregarCategoria_Click(object sender, EventArgs e)
         {
+            try
+            {
+                frmAdministrarCategoria messageBox = new frmAdministrarCategoria("Agregar Categoria");
+                messageBox.ShowDialog();
+                cargarCategorias();
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void btnModificarCategoria_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Categoria seleccionada = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
+                frmAdministrarCategoria messageBox = new frmAdministrarCategoria("Modificar Categoria", seleccionada, true);
+                messageBox.ShowDialog();
+                cargarCategorias();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void btnEliminarCategoria_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Categoria seleccionada = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
+                CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+                categoriaNegocio.eliminar(seleccionada.Id);
+                cargarCategorias();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
 
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

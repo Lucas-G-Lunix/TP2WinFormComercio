@@ -1,6 +1,7 @@
 ﻿using Dominio;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Negocio
 {
@@ -37,8 +38,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string valores = "values('" + nuevo.Descripcion + "')";
-                datos.setearConsulta("insert into CATEGORIAS (Descripcion) " + valores);
+                datos.setearConsulta("INSERT INTO CATEGORIAS (Descripcion) VALUES ('" + nuevo.Descripcion + "')");
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -55,9 +55,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("update CATEGORIAS set Descripcion = @Descripcion where Id = @Id");
-                datos.setearParametro("@Descripcion", categoria.Descripcion);
-                datos.setearParametro("@Id", categoria.Id);
+                datos.setearConsulta("UPDATE CATEGORIAS SET Descripcion = '" + categoria.Descripcion + "' WHERE Id = '" + categoria.Id + "'");
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -74,8 +72,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("delete from CATEGORIAS where Id = @Id");
-                datos.setearParametro("@Id", id);
+                datos.setearConsulta("DELETE FROM CATEGORIAS WHERE Id = " + id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
