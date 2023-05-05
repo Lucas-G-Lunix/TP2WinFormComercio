@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dominio;
 
 namespace Negocio
 {
@@ -18,7 +15,7 @@ namespace Negocio
             {
                 datos.setearConsulta(" SELECT A.Id, Codigo, A.Nombre, A.Descripcion, A.Precio, A.IdCategoria, A.IdMarca, I.ImagenURL, M.Id IdMarca, M.Descripcion Marca, C.Id IdCategoria, C.Descripcion Categoria " +
                    "FROM ARTICULOS A LEFT JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id LEFT JOIN IMAGENES I ON I.IdArticulo = A.Id");
-                datos.ejecutarLecura();
+                datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
@@ -35,7 +32,10 @@ namespace Negocio
 
                     aux.Categoria = new Categoria();
 
-                    aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
+                    if (!(datos.Lector["Categoria"] is DBNull))
+                    {
+                        aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
+                    }
                     if (!(datos.Lector["Categoria"] is DBNull))
                         aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
                     else
@@ -44,7 +44,10 @@ namespace Negocio
                     }
 
                     aux.Marca = new Marca();
-                    aux.Marca.Id = (int)datos.Lector["IdMarca"];
+                    if (!(datos.Lector["Categoria"] is DBNull))
+                    {
+                        aux.Marca.Id = (int)datos.Lector["IdMarca"];
+                    }
                     if (!(datos.Lector["Marca"] is DBNull))
                         aux.Marca.Descripcion = (string)datos.Lector["Marca"];
                     else
@@ -52,9 +55,7 @@ namespace Negocio
                         aux.Marca.Descripcion = "Sin Marca";
                     }
 
-
                     lista.Add(aux);
-
                 }
                 return lista;
             }
@@ -66,24 +67,24 @@ namespace Negocio
 
         }
 
-        public void agregar(Articulo nuevo)
+        public void agregar(Articulo art)
         {
             try
             {
                 AccesoDatos datos = new AccesoDatos();
-                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio)"+
-                    " VALUES ('"+nuevo.Codigo+"', '"+nuevo.Nombre+"', '"+nuevo.Descripcion+ "', @marcaId, @categoriaId, @precio)");
-                datos.setearParametro("@marcaId", nuevo.Marca.Id);
-                datos.setearParametro("@categoriaId", nuevo.Categoria.Id);
-                datos.setearParametro("@precio", nuevo.Precio);
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio)" +
+                    " VALUES ('" + art.Codigo + "', '" + art.Nombre + "', '" + art.Descripcion + "', @marcaId, @categoriaId, @precio)");
+                datos.setearParametro("@marcaId", art.Marca.Id);
+                datos.setearParametro("@categoriaId", art.Categoria.Id);
+                datos.setearParametro("@precio", art.Precio);
                 datos.ejecutarAccion();
                 datos.cerrarConexion();
                 datos = new AccesoDatos();
-                nuevo.Id = datos.ultimoId();
+                art.Id = datos.ultimoId();
                 datos.cerrarConexion();
                 datos = new AccesoDatos();
-                datos.setearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@idArticulo, '"+nuevo.ImagenURL+"')");
-                datos.setearParametro("@idArticulo", nuevo.Id);
+                datos.setearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@idArticulo, '" + art.ImagenURL + "')");
+                datos.setearParametro("@idArticulo", art.Id);
                 datos.ejecutarAccion();
                 datos.cerrarConexion();
             }
@@ -96,34 +97,44 @@ namespace Negocio
 
         public void modificar(Articulo art)
         {
-            AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("UPDATE ARTICULOS SET"
-                    + "Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion, IdMarca = @idMarca, IdCategoria = @idCategoria, Precio = @precio WHERE Id = @id");
-                datos.setearParametro("@codigo", art.Codigo);
-                datos.setearParametro("@nombre", art.Nombre);
-                datos.setearParametro("@descripcion", art.Descripcion);
-                datos.setearParametro("@idMarca", art.Marca.Id);
-                datos.setearParametro("@idCategoria", art.Categoria.Id);
-                datos.setearParametro("@precio", art.Precio);
+                AccesoDatos datos = new AccesoDatos();
+                datos.setearConsulta("UPDATE ARTICULOS SET " +
+                    "Codigo = '" + art.Codigo + "', Nombre = '" + art.Nombre + "', Descripcion = '" + art.Descripcion + "', IdMarca = @idMarca, IdCategoria = @idCategoria, Precio = @Precio WHERE Id = @id");
+                if (art.Marca == null)
+                {
+                    datos.setearParametro("@idMarca", DBNull.Value);
+                }
+                else
+                {
+                    datos.setearParametro("@idMarca", art.Marca.Id);
+                }
+
+                if (art.Categoria == null)
+                {
+                    datos.setearParametro("@idCategoria", DBNull.Value);
+                }
+                else
+                {
+                    datos.setearParametro("@idCategoria", art.Categoria.Id);
+                }
+
+                datos.setearParametro("@Precio", art.Precio);
                 datos.setearParametro("@id", art.Id);
                 datos.ejecutarAccion();
-                datos.setearConsulta("UPDATE IMAGENES SET ImagenUrl = '@imagenURL' WHERE IdArticulo = @idArticulo");
-                datos.setearParametro("@imagenURL", art.ImagenURL);
+                datos.cerrarConexion();
+                datos = new AccesoDatos();
+                datos.setearConsulta("UPDATE IMAGENES SET ImagenUrl = '" + art.ImagenURL + "' WHERE IdArticulo = @idArticulo");
                 datos.setearParametro("@idArticulo", art.Id);
                 datos.ejecutarAccion();
+                datos.cerrarConexion();
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
-            finally
-            {
-                datos.cerrarConexion();
-            }
-
         }
 
         public void eliminar(int id)

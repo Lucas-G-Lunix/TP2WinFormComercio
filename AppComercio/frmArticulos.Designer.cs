@@ -100,10 +100,10 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(375, 9);
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft New Tai Lue", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(380, 9);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(230, 55);
+            this.lblTitulo.Size = new System.Drawing.Size(241, 63);
             this.lblTitulo.TabIndex = 5;
             this.lblTitulo.Text = "Comercio";
             // 
@@ -195,6 +195,7 @@
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(229, 20);
             this.txtFiltro.TabIndex = 15;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // btnFiltroAvanzado
             // 

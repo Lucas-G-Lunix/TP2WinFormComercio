@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Dominio;
+﻿using Dominio;
 using Negocio;
-using System.Configuration;
-using System.IO;
-using System.Xml.Linq;
+using System;
+using System.Windows.Forms;
 
 namespace AppComercio
 {
@@ -22,17 +12,42 @@ namespace AppComercio
         {
             InitializeComponent();
         }
+        public frmAltaArticulo(Articulo art)
+        {
+            InitializeComponent();
+            articulo = art;
+        }
 
         private void frmAltaArticulo_Load(object sender, EventArgs e)
         {
-            MarcaNegocio marcaNegocio = new MarcaNegocio();
-            cbxMarca.DataSource = marcaNegocio.listar();
-            cbxMarca.ValueMember = "Id";
-            cbxMarca.DisplayMember = "Descripcion";
-            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-            cbxCategoria.DataSource = categoriaNegocio.listar();
-            cbxCategoria.ValueMember = "Id";
-            cbxCategoria.DisplayMember = "Descripcion";
+            try
+            {
+                MarcaNegocio marcaNegocio = new MarcaNegocio();
+                cbxMarca.DataSource = marcaNegocio.listar();
+                cbxMarca.ValueMember = "Id";
+                cbxMarca.DisplayMember = "Descripcion";
+                CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+                cbxCategoria.DataSource = categoriaNegocio.listar();
+                cbxCategoria.ValueMember = "Id";
+                cbxCategoria.DisplayMember = "Descripcion";
+
+                if (articulo != null)
+                {
+                    txtCodigo.Text = articulo.Codigo;
+                    txtNombre.Text = articulo.Nombre;
+                    txtDescripcion.Text = articulo.Descripcion;
+                    txtUrlImagen.Text = articulo.ImagenURL;
+                    cargarImagen(articulo.ImagenURL);
+                    cbxMarca.SelectedValue = articulo.Marca.Id;
+                    cbxCategoria.SelectedValue = articulo.Categoria.Id;
+                    txtPrecio.Text = articulo.Precio.ToString();
+                    Text = "Modificar Pokemon";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -49,28 +64,27 @@ namespace AppComercio
                 articulo.Marca = (Marca)cbxMarca.SelectedItem;
                 articulo.Categoria = (Categoria)cbxCategoria.SelectedItem;
                 articulo.ImagenURL = txtUrlImagen.Text;
-                articulo.Precio = int.Parse(txtPrecio.Text);
+                articulo.Precio = decimal.Parse(txtPrecio.Text);
                 ArticuloNegocio negocio = new ArticuloNegocio();
-                negocio.agregar(articulo);
-                MessageBox.Show("Agregado Correctamente!");
-                /*if (pokemon.Id != 0)
+
+                AccesoDatos datos = new AccesoDatos();
+                if (articulo.Id != 0)
                 {
-                    negocio.modificar(pokemon);
+                    negocio.modificar(articulo);
                     MessageBox.Show("Modificado Correctamente!");
                 }
                 else
                 {
-                    
+                    negocio.agregar(articulo);
+                    MessageBox.Show("Agregado Correctamente!");
                 }
-                */
                 /*
-                if (archivo != null && !(txtUrlImagen.Text.ToLower().Contains("http")))
-                {
-                    File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
-                }
+                 if (archivo != null && !(txtUrlImagen.Text.ToLower().Contains("http")))
+                 {
+                     File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
+                 }
                 */
                 Close();
-
             }
             catch (Exception ex)
             {

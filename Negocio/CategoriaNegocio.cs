@@ -1,10 +1,6 @@
 ﻿using Dominio;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace Negocio
 {
@@ -17,7 +13,7 @@ namespace Negocio
             try
             {
                 datos.setearConsulta("SELECT Id, Descripcion FROM CATEGORIAS");
-                datos.ejecutarLecura();
+                datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
                     Categoria aux = new Categoria();
