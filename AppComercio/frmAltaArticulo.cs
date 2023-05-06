@@ -38,7 +38,12 @@ namespace AppComercio
                     txtCodigo.Text = articulo.Codigo;
                     txtNombre.Text = articulo.Nombre;
                     txtDescripcion.Text = articulo.Descripcion;
-                    txtUrlImagen.Text = articulo.ImagenURL[0].ToString();
+                    string urlImagenes = "";
+                    foreach (string url in articulo.ImagenURL)
+                    {
+                        urlImagenes += url + ",";
+                    }
+                    txtUrlImagen.Text = urlImagenes;
                     cargarImagen(articulo.ImagenURL[0].ToString());
                     cbxMarca.SelectedValue = articulo.Marca.Id;
                     cbxCategoria.SelectedValue = articulo.Categoria.Id;

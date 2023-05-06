@@ -109,7 +109,7 @@
             // lblUrlImagen
             // 
             this.lblUrlImagen.AutoSize = true;
-            this.lblUrlImagen.Location = new System.Drawing.Point(18, 260);
+            this.lblUrlImagen.Location = new System.Drawing.Point(18, 252);
             this.lblUrlImagen.Name = "lblUrlImagen";
             this.lblUrlImagen.Size = new System.Drawing.Size(68, 13);
             this.lblUrlImagen.TabIndex = 6;
@@ -118,7 +118,7 @@
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(16, 307);
+            this.lblPrecio.Location = new System.Drawing.Point(16, 281);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(78, 13);
             this.lblPrecio.TabIndex = 7;
@@ -148,22 +148,21 @@
             // txtUrlImagen
             // 
             this.txtUrlImagen.Location = new System.Drawing.Point(100, 248);
-            this.txtUrlImagen.Multiline = true;
             this.txtUrlImagen.Name = "txtUrlImagen";
-            this.txtUrlImagen.Size = new System.Drawing.Size(170, 39);
+            this.txtUrlImagen.Size = new System.Drawing.Size(170, 20);
             this.txtUrlImagen.TabIndex = 5;
             this.txtUrlImagen.TextChanged += new System.EventHandler(this.txtUrlImagen_TextChanged);
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(100, 304);
+            this.txtPrecio.Location = new System.Drawing.Point(100, 278);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(170, 20);
             this.txtPrecio.TabIndex = 7;
             // 
             // btnAgregarImagen
             // 
-            this.btnAgregarImagen.Location = new System.Drawing.Point(276, 256);
+            this.btnAgregarImagen.Location = new System.Drawing.Point(276, 248);
             this.btnAgregarImagen.Name = "btnAgregarImagen";
             this.btnAgregarImagen.Size = new System.Drawing.Size(27, 21);
             this.btnAgregarImagen.TabIndex = 6;

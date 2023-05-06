@@ -13,7 +13,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("SELECT A.Id, Codigo, A.Nombre, A.Descripcion, A.Precio, A.IdCategoria, A.IdMarca, M.Id IdMarca, M.Descripcion Marca, C.Id IdCategoria, C.Descripcion Categoria " +
+                datos.setearConsulta("SELECT A.Id, Codigo, A.Nombre, A.Descripcion, A.Precio, A.IdCategoria, A.IdMarca, M.Descripcion Marca, C.Id IdCategoria, C.Descripcion Categoria " +
                    "FROM ARTICULOS A LEFT JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
@@ -65,7 +65,10 @@ namespace Negocio
                     {
                         if (item.Id == (int)datos.Lector["IdArticulo"])
                         {
-                            item.ImagenURL = new List<string>();
+                            if (item.ImagenURL == null)
+                            {
+                                item.ImagenURL = new List<string>();
+                            }
                             item.ImagenURL.Add((string)datos.Lector["ImagenURL"]);
                         }
                     }
@@ -96,11 +99,10 @@ namespace Negocio
                 datos = new AccesoDatos();
                 art.Id = datos.ultimoId();
                 datos.cerrarConexion();
-                foreach(string item in art.ImagenURL)
+                foreach(string imagen in art.ImagenURL)
                 {
                     datos = new AccesoDatos();
-                    datos.setearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenURL) VALUES (@idArticulo, "+item+")");
-                    datos.setearParametro("@idArticulo", art.Id);
+                    datos.setearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenURL) VALUES ("+art.Id+", '"+ imagen +"')");
                     datos.ejecutarAccion();
                     datos.cerrarConexion();
                 }
@@ -141,11 +143,15 @@ namespace Negocio
                 datos.setearParametro("@id", art.Id);
                 datos.ejecutarAccion();
                 datos.cerrarConexion();
-                foreach (string item in art.ImagenURL)
+                datos = new AccesoDatos();
+                datos.setearConsulta("DELETE FROM IMAGENES WHERE IdArticulo = @id");
+                datos.setearParametro("@id", art.Id);
+                datos.ejecutarAccion();
+                datos.cerrarConexion();
+                foreach (string imagen in art.ImagenURL)
                 {
                     datos = new AccesoDatos();
-                    datos.setearConsulta("UPDATE IMAGENES SET ImagenUrl = '" + item + "' WHERE IdArticulo = @idArticulo");
-                    datos.setearParametro("@idArticulo", art.Id);
+                    datos.setearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenURL) VALUES (" + art.Id + ", '" + imagen + "')");
                     datos.ejecutarAccion();
                     datos.cerrarConexion();
                 }

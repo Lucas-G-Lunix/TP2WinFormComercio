@@ -2,6 +2,7 @@
 using Negocio;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace AppComercio
@@ -9,6 +10,7 @@ namespace AppComercio
     public partial class frmArticulos : Form
     {
         private List<Articulo> listaArticulos;
+        private int imagenActual;
 
         public frmArticulos()
         {
@@ -31,6 +33,7 @@ namespace AppComercio
             {
                 Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
                 cargarImagen(seleccionado.ImagenURL[0].ToString());
+                imagenActual = 0;
             }
         }
 
@@ -146,6 +149,51 @@ namespace AppComercio
             frmAdministrar administrar = new frmAdministrar();
             administrar.ShowDialog();
             cargarGrilla();
+        }
+
+        private void btnCambiarImagenDerecha_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.ImagenURL[imagenActual + 1]);
+                imagenActual++;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return;
+            }
+            catch (NullReferenceException)
+            {
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
+        }
+
+        private void btnCambiarImagenIzquierda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.ImagenURL[imagenActual - 1]);
+                imagenActual--;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return;
+            }
+            catch (NullReferenceException)
+            {
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

@@ -46,6 +46,8 @@
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnFiltroAvanzado = new System.Windows.Forms.Button();
             this.btnAdministrarMarcasCategorias = new System.Windows.Forms.Button();
+            this.btnCambiarImagenDerecha = new System.Windows.Forms.Button();
+            this.btnCambiarImagenIzquierda = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +57,7 @@
             this.btnEliminarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminarArticulo.BackColor = System.Drawing.Color.LightCoral;
             this.btnEliminarArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarArticulo.Location = new System.Drawing.Point(523, 583);
+            this.btnEliminarArticulo.Location = new System.Drawing.Point(557, 583);
             this.btnEliminarArticulo.Name = "btnEliminarArticulo";
             this.btnEliminarArticulo.Size = new System.Drawing.Size(187, 36);
             this.btnEliminarArticulo.TabIndex = 2;
@@ -81,7 +83,7 @@
             this.btnModificarArticulos.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnModificarArticulos.BackColor = System.Drawing.Color.Gold;
             this.btnModificarArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarArticulos.Location = new System.Drawing.Point(275, 583);
+            this.btnModificarArticulos.Location = new System.Drawing.Point(292, 583);
             this.btnModificarArticulos.Name = "btnModificarArticulos";
             this.btnModificarArticulos.Size = new System.Drawing.Size(187, 36);
             this.btnModificarArticulos.TabIndex = 1;
@@ -122,7 +124,7 @@
             // 
             // pbxArticulo
             // 
-            this.pbxArticulo.Location = new System.Drawing.Point(677, 173);
+            this.pbxArticulo.Location = new System.Drawing.Point(697, 167);
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(300, 300);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -220,12 +222,34 @@
             this.btnAdministrarMarcasCategorias.UseVisualStyleBackColor = false;
             this.btnAdministrarMarcasCategorias.Click += new System.EventHandler(this.btnAdministrarMarcasCategorias_Click);
             // 
+            // btnCambiarImagenDerecha
+            // 
+            this.btnCambiarImagenDerecha.Location = new System.Drawing.Point(1003, 303);
+            this.btnCambiarImagenDerecha.Name = "btnCambiarImagenDerecha";
+            this.btnCambiarImagenDerecha.Size = new System.Drawing.Size(29, 29);
+            this.btnCambiarImagenDerecha.TabIndex = 15;
+            this.btnCambiarImagenDerecha.Text = ">";
+            this.btnCambiarImagenDerecha.UseVisualStyleBackColor = true;
+            this.btnCambiarImagenDerecha.Click += new System.EventHandler(this.btnCambiarImagenDerecha_Click);
+            // 
+            // btnCambiarImagenIzquierda
+            // 
+            this.btnCambiarImagenIzquierda.Location = new System.Drawing.Point(662, 303);
+            this.btnCambiarImagenIzquierda.Name = "btnCambiarImagenIzquierda";
+            this.btnCambiarImagenIzquierda.Size = new System.Drawing.Size(29, 29);
+            this.btnCambiarImagenIzquierda.TabIndex = 16;
+            this.btnCambiarImagenIzquierda.Text = "<";
+            this.btnCambiarImagenIzquierda.UseVisualStyleBackColor = true;
+            this.btnCambiarImagenIzquierda.Click += new System.EventHandler(this.btnCambiarImagenIzquierda_Click);
+            // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(1000, 641);
+            this.ClientSize = new System.Drawing.Size(1034, 641);
+            this.Controls.Add(this.btnCambiarImagenIzquierda);
+            this.Controls.Add(this.btnCambiarImagenDerecha);
             this.Controls.Add(this.btnAdministrarMarcasCategorias);
             this.Controls.Add(this.btnFiltroAvanzado);
             this.Controls.Add(this.txtFiltro);
@@ -244,7 +268,6 @@
             this.Controls.Add(this.btnAgregarArticulo);
             this.Controls.Add(this.btnEliminarArticulo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(1037, 800);
             this.MinimumSize = new System.Drawing.Size(997, 676);
             this.Name = "frmArticulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -276,6 +299,8 @@
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Button btnFiltroAvanzado;
         private System.Windows.Forms.Button btnAdministrarMarcasCategorias;
+        private System.Windows.Forms.Button btnCambiarImagenDerecha;
+        private System.Windows.Forms.Button btnCambiarImagenIzquierda;
     }
 }
 
