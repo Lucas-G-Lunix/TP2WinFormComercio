@@ -13,8 +13,8 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("SELECT DISTINCT A.Id, Codigo, A.Nombre, A.Descripcion, A.Precio, A.IdCategoria, A.IdMarca, I.ImagenURL, M.Id IdMarca, M.Descripcion Marca, C.Id IdCategoria, C.Descripcion Categoria " +
-                   "FROM ARTICULOS A LEFT JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id LEFT JOIN IMAGENES I ON I.IdArticulo = A.Id");
+                datos.setearConsulta("SELECT A.Id, Codigo, A.Nombre, A.Descripcion, A.Precio, A.IdCategoria, A.IdMarca, M.Id IdMarca, M.Descripcion Marca, C.Id IdCategoria, C.Descripcion Categoria " +
+                   "FROM ARTICULOS A LEFT JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
@@ -27,8 +27,6 @@ namespace Negocio
                         aux.Descripcion = (string)datos.Lector["Descripcion"];
                     if (!(datos.Lector["Precio"] is DBNull))
                         aux.Precio = (decimal)datos.Lector["Precio"];
-                    if (!(datos.Lector["ImagenURL"] is DBNull))
-                        aux.ImagenURL = (string)datos.Lector["ImagenURL"];
 
                     aux.Categoria = new Categoria();
 
@@ -57,6 +55,22 @@ namespace Negocio
 
                     lista.Add(aux);
                 }
+                datos.cerrarConexion();
+                datos = new AccesoDatos();
+                datos.setearConsulta("SELECT IdArticulo, ImagenURL FROM IMAGENES");
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    foreach (Articulo item in lista)
+                    {
+                        if (item.Id == (int)datos.Lector["IdArticulo"])
+                        {
+                            item.ImagenURL = new List<string>();
+                            item.ImagenURL.Add((string)datos.Lector["ImagenURL"]);
+                        }
+                    }
+                }
+                datos.cerrarConexion();
                 return lista;
             }
             catch (Exception ex)
@@ -82,11 +96,14 @@ namespace Negocio
                 datos = new AccesoDatos();
                 art.Id = datos.ultimoId();
                 datos.cerrarConexion();
-                datos = new AccesoDatos();
-                datos.setearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@idArticulo, '" + art.ImagenURL + "')");
-                datos.setearParametro("@idArticulo", art.Id);
-                datos.ejecutarAccion();
-                datos.cerrarConexion();
+                foreach(string item in art.ImagenURL)
+                {
+                    datos = new AccesoDatos();
+                    datos.setearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenURL) VALUES (@idArticulo, "+item+")");
+                    datos.setearParametro("@idArticulo", art.Id);
+                    datos.ejecutarAccion();
+                    datos.cerrarConexion();
+                }
             }
 
             catch (Exception ex)
@@ -124,11 +141,14 @@ namespace Negocio
                 datos.setearParametro("@id", art.Id);
                 datos.ejecutarAccion();
                 datos.cerrarConexion();
-                datos = new AccesoDatos();
-                datos.setearConsulta("UPDATE IMAGENES SET ImagenUrl = '" + art.ImagenURL + "' WHERE IdArticulo = @idArticulo");
-                datos.setearParametro("@idArticulo", art.Id);
-                datos.ejecutarAccion();
-                datos.cerrarConexion();
+                foreach (string item in art.ImagenURL)
+                {
+                    datos = new AccesoDatos();
+                    datos.setearConsulta("UPDATE IMAGENES SET ImagenUrl = '" + item + "' WHERE IdArticulo = @idArticulo");
+                    datos.setearParametro("@idArticulo", art.Id);
+                    datos.ejecutarAccion();
+                    datos.cerrarConexion();
+                }
             }
             catch (Exception ex)
             {

@@ -1,6 +1,8 @@
 ﻿using Dominio;
 using Negocio;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace AppComercio
@@ -36,8 +38,8 @@ namespace AppComercio
                     txtCodigo.Text = articulo.Codigo;
                     txtNombre.Text = articulo.Nombre;
                     txtDescripcion.Text = articulo.Descripcion;
-                    txtUrlImagen.Text = articulo.ImagenURL;
-                    cargarImagen(articulo.ImagenURL);
+                    txtUrlImagen.Text = articulo.ImagenURL[0].ToString();
+                    cargarImagen(articulo.ImagenURL[0].ToString());
                     cbxMarca.SelectedValue = articulo.Marca.Id;
                     cbxCategoria.SelectedValue = articulo.Categoria.Id;
                     txtPrecio.Text = articulo.Precio.ToString();
@@ -67,7 +69,15 @@ namespace AppComercio
                 articulo.Descripcion = txtDescripcion.Text;
                 articulo.Marca = (Marca)cbxMarca.SelectedItem;
                 articulo.Categoria = (Categoria)cbxCategoria.SelectedItem;
-                articulo.ImagenURL = txtUrlImagen.Text;
+                List<string> urlImagenes = txtUrlImagen.Text.Split(',').ToList();
+                foreach (string palabra in urlImagenes)
+                {
+                    if (palabra.Contains(","))
+                    {
+                        urlImagenes.Remove(palabra);
+                    }
+                }
+                articulo.ImagenURL = urlImagenes;
                 articulo.Precio = decimal.Parse(txtPrecio.Text);
                 ArticuloNegocio negocio = new ArticuloNegocio();
 
@@ -163,7 +173,8 @@ namespace AppComercio
         {
             foreach (char caracter in cadena)
             {
-                if (!(char.IsNumber(caracter)))
+                //
+                if (!(char.IsNumber(caracter)) && !(caracter == '.'))
                 {
                     return false;
                 }

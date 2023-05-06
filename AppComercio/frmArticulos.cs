@@ -30,7 +30,7 @@ namespace AppComercio
             if (dgvArticulo.CurrentRow != null)
             {
                 Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
-                cargarImagen(seleccionado.ImagenURL);
+                cargarImagen(seleccionado.ImagenURL[0].ToString());
             }
         }
 
@@ -52,7 +52,6 @@ namespace AppComercio
 
         private void ocultarColumnas()
         {
-            dgvArticulo.Columns["ImagenURL"].Visible = false;
             dgvArticulo.Columns["Id"].Visible = false;
         }
 
