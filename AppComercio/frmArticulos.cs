@@ -91,19 +91,36 @@ namespace AppComercio
                     cargarGrilla();
                 }
             }
-            catch (Exception)
+            catch (NullReferenceException)
             {
-
-                throw;
+                MessageBox.Show("No seleccionaste ningun articulo", "Error en la operacion");
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
         private void btnModificarArticulos_Click(object sender, EventArgs e)
         {
-            Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
-            frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
-            modificar.ShowDialog();
-            cargarGrilla();
+            try
+            {
+                Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+                frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
+                modificar.ShowDialog();
+                cargarGrilla();
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("No seleccionaste ningun articulo", "Error en la operacion");
+                return;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)

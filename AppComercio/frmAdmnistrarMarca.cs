@@ -50,6 +50,10 @@ namespace AppComercio
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            if (validacion())
+            {
+                return;
+            }
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             marca.Descripcion = txtNombre.Text;
             if (modificar)
@@ -69,6 +73,31 @@ namespace AppComercio
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+        private bool validacion()
+        {
+            if (txtNombre.Text == "")
+            {
+                MessageBox.Show("El campo Nombre esta vacio", "Error en el ingreso de datos");
+                return true;
+            }
+            if (soloLetras(txtNombre.Text))
+            {
+                MessageBox.Show("Por favor, ingrese solo letras", "Error en el ingreso de datos");
+                return true;
+            }
+            return false;
+        }
+        private bool soloLetras(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (char.IsNumber(caracter))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

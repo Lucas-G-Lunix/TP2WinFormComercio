@@ -75,6 +75,11 @@ namespace AppComercio
                 messageBox.ShowDialog();
                 cargarMarcas();
             }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("No seleccionaste ningun articulo", "Error en la operacion");
+                return;
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
@@ -89,6 +94,11 @@ namespace AppComercio
                 MarcaNegocio marcaNegocio = new MarcaNegocio();
                 marcaNegocio.eliminar(seleccionada.Id);
                 cargarMarcas();
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("No seleccionaste ningun articulo", "Error en la operacion");
+                return;
             }
             catch (Exception ex)
             {
@@ -120,6 +130,11 @@ namespace AppComercio
                 messageBox.ShowDialog();
                 cargarCategorias();
             }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("No seleccionaste ningun articulo", "Error en la operacion");
+                return;
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
@@ -134,6 +149,11 @@ namespace AppComercio
                 CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
                 categoriaNegocio.eliminar(seleccionada.Id);
                 cargarCategorias();
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("No seleccionaste ningun articulo", "Error en la operacion");
+                return;
             }
             catch (Exception ex)
             {

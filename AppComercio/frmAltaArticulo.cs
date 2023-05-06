@@ -54,6 +54,10 @@ namespace AppComercio
         {
             try
             {
+                if (validacion())
+                {
+                    return;
+                }
                 if (articulo == null)
                 {
                     articulo = new Articulo();
@@ -119,6 +123,52 @@ namespace AppComercio
         private void btnAgregarImagen_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private bool validacion()
+        {
+            if (txtCodigo.Text == "")
+            {
+                MessageBox.Show("El campo codigo esta vacio", "Error en el ingreso de datos");
+                return true;
+            }
+            if (txtNombre.Text == "")
+            {
+                MessageBox.Show("El campo Nombre esta vacio", "Error en el ingreso de datos");
+                return true;
+            }
+            if (txtDescripcion.Text == "")
+            {
+                MessageBox.Show("El campo Descripcion esta vacio", "Error en el ingreso de datos");
+                return true;
+            }
+            if (txtUrlImagen.Text == "")
+            {
+                MessageBox.Show("El campo Url Imagen esta vacio", "Error en el ingreso de datos");
+                return true;
+            }
+            if (txtPrecio.Text == "")
+            {
+                MessageBox.Show("El campo Precio esta vacio", "Error en el ingreso de datos");
+                return true;
+            }
+            if (!(soloNumeros(txtPrecio.Text)))
+            {
+                MessageBox.Show("Por favor, ingrese solo numero en el precio", "Error en el ingreso de datos");
+                return true;
+            }
+            return false;
+        }
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter)))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

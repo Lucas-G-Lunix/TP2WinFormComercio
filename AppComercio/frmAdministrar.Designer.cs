@@ -69,7 +69,7 @@
             // 
             this.lblMarcas.AutoSize = true;
             this.lblMarcas.Font = new System.Drawing.Font("Microsoft New Tai Lue", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarcas.Location = new System.Drawing.Point(6, 15);
+            this.lblMarcas.Location = new System.Drawing.Point(12, 15);
             this.lblMarcas.Name = "lblMarcas";
             this.lblMarcas.Size = new System.Drawing.Size(107, 35);
             this.lblMarcas.TabIndex = 2;
@@ -87,62 +87,76 @@
             // 
             // btnAgregarMarcas
             // 
-            this.btnAgregarMarcas.Location = new System.Drawing.Point(12, 369);
+            this.btnAgregarMarcas.BackColor = System.Drawing.Color.Gold;
+            this.btnAgregarMarcas.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAgregarMarcas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarMarcas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAgregarMarcas.Location = new System.Drawing.Point(12, 359);
             this.btnAgregarMarcas.Name = "btnAgregarMarcas";
-            this.btnAgregarMarcas.Size = new System.Drawing.Size(113, 23);
+            this.btnAgregarMarcas.Size = new System.Drawing.Size(200, 33);
             this.btnAgregarMarcas.TabIndex = 0;
             this.btnAgregarMarcas.Text = "Agregar Marca";
-            this.btnAgregarMarcas.UseVisualStyleBackColor = true;
+            this.btnAgregarMarcas.UseVisualStyleBackColor = false;
             this.btnAgregarMarcas.Click += new System.EventHandler(this.btnAgregarMarcas_Click);
             // 
             // btnModificarMarca
             // 
+            this.btnModificarMarca.BackColor = System.Drawing.Color.Gold;
+            this.btnModificarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificarMarca.Location = new System.Drawing.Point(12, 398);
             this.btnModificarMarca.Name = "btnModificarMarca";
-            this.btnModificarMarca.Size = new System.Drawing.Size(113, 23);
+            this.btnModificarMarca.Size = new System.Drawing.Size(200, 33);
             this.btnModificarMarca.TabIndex = 1;
             this.btnModificarMarca.Text = "Modificar Marca";
-            this.btnModificarMarca.UseVisualStyleBackColor = true;
+            this.btnModificarMarca.UseVisualStyleBackColor = false;
             this.btnModificarMarca.Click += new System.EventHandler(this.btnModificarMarca_Click);
             // 
             // btnEliminarMarca
             // 
-            this.btnEliminarMarca.Location = new System.Drawing.Point(12, 427);
+            this.btnEliminarMarca.BackColor = System.Drawing.Color.Gold;
+            this.btnEliminarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarMarca.Location = new System.Drawing.Point(12, 437);
             this.btnEliminarMarca.Name = "btnEliminarMarca";
-            this.btnEliminarMarca.Size = new System.Drawing.Size(113, 23);
+            this.btnEliminarMarca.Size = new System.Drawing.Size(200, 33);
             this.btnEliminarMarca.TabIndex = 2;
             this.btnEliminarMarca.Text = "Eliminar Marca";
-            this.btnEliminarMarca.UseVisualStyleBackColor = true;
+            this.btnEliminarMarca.UseVisualStyleBackColor = false;
             this.btnEliminarMarca.Click += new System.EventHandler(this.btnEliminarMarca_Click);
             // 
             // btnEliminarCategoria
             // 
-            this.btnEliminarCategoria.Location = new System.Drawing.Point(232, 427);
+            this.btnEliminarCategoria.BackColor = System.Drawing.Color.Gold;
+            this.btnEliminarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarCategoria.Location = new System.Drawing.Point(232, 437);
             this.btnEliminarCategoria.Name = "btnEliminarCategoria";
-            this.btnEliminarCategoria.Size = new System.Drawing.Size(113, 23);
+            this.btnEliminarCategoria.Size = new System.Drawing.Size(200, 33);
             this.btnEliminarCategoria.TabIndex = 5;
             this.btnEliminarCategoria.Text = "Eliminar Categoría";
-            this.btnEliminarCategoria.UseVisualStyleBackColor = true;
+            this.btnEliminarCategoria.UseVisualStyleBackColor = false;
             this.btnEliminarCategoria.Click += new System.EventHandler(this.btnEliminarCategoria_Click);
             // 
             // btnModificarCategoria
             // 
+            this.btnModificarCategoria.BackColor = System.Drawing.Color.Gold;
+            this.btnModificarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificarCategoria.Location = new System.Drawing.Point(232, 398);
             this.btnModificarCategoria.Name = "btnModificarCategoria";
-            this.btnModificarCategoria.Size = new System.Drawing.Size(113, 23);
+            this.btnModificarCategoria.Size = new System.Drawing.Size(200, 33);
             this.btnModificarCategoria.TabIndex = 4;
             this.btnModificarCategoria.Text = "Modificar Categoría";
-            this.btnModificarCategoria.UseVisualStyleBackColor = true;
+            this.btnModificarCategoria.UseVisualStyleBackColor = false;
             this.btnModificarCategoria.Click += new System.EventHandler(this.btnModificarCategoria_Click);
             // 
             // btnAgregarCategoria
             // 
-            this.btnAgregarCategoria.Location = new System.Drawing.Point(232, 369);
+            this.btnAgregarCategoria.BackColor = System.Drawing.Color.Gold;
+            this.btnAgregarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarCategoria.Location = new System.Drawing.Point(232, 359);
             this.btnAgregarCategoria.Name = "btnAgregarCategoria";
-            this.btnAgregarCategoria.Size = new System.Drawing.Size(113, 23);
+            this.btnAgregarCategoria.Size = new System.Drawing.Size(200, 33);
             this.btnAgregarCategoria.TabIndex = 3;
             this.btnAgregarCategoria.Text = "Agregar Categoría";
-            this.btnAgregarCategoria.UseVisualStyleBackColor = true;
+            this.btnAgregarCategoria.UseVisualStyleBackColor = false;
             this.btnAgregarCategoria.Click += new System.EventHandler(this.btnAgregarCategoria_Click);
             // 
             // btnAceptar
@@ -150,10 +164,11 @@
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAceptar.BackColor = System.Drawing.Color.YellowGreen;
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAceptar.Location = new System.Drawing.Point(12, 472);
+            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Location = new System.Drawing.Point(12, 489);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(422, 31);
-            this.btnAceptar.TabIndex = 17;
+            this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "ACEPTAR";
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -162,7 +177,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(446, 532);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnEliminarCategoria);

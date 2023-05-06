@@ -129,28 +129,28 @@
             this.txtCodigo.Location = new System.Drawing.Point(100, 68);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(170, 20);
-            this.txtCodigo.TabIndex = 8;
+            this.txtCodigo.TabIndex = 0;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(100, 104);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(170, 20);
-            this.txtNombre.TabIndex = 9;
+            this.txtNombre.TabIndex = 1;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(100, 140);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(170, 20);
-            this.txtDescripcion.TabIndex = 10;
+            this.txtDescripcion.TabIndex = 2;
             // 
             // txtUrlImagen
             // 
             this.txtUrlImagen.Location = new System.Drawing.Point(100, 248);
             this.txtUrlImagen.Name = "txtUrlImagen";
             this.txtUrlImagen.Size = new System.Drawing.Size(170, 20);
-            this.txtUrlImagen.TabIndex = 11;
+            this.txtUrlImagen.TabIndex = 5;
             this.txtUrlImagen.TextChanged += new System.EventHandler(this.txtUrlImagen_TextChanged);
             // 
             // txtPrecio
@@ -158,14 +158,14 @@
             this.txtPrecio.Location = new System.Drawing.Point(100, 286);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(170, 20);
-            this.txtPrecio.TabIndex = 12;
+            this.txtPrecio.TabIndex = 7;
             // 
             // btnAgregarImagen
             // 
             this.btnAgregarImagen.Location = new System.Drawing.Point(276, 248);
             this.btnAgregarImagen.Name = "btnAgregarImagen";
             this.btnAgregarImagen.Size = new System.Drawing.Size(27, 21);
-            this.btnAgregarImagen.TabIndex = 13;
+            this.btnAgregarImagen.TabIndex = 6;
             this.btnAgregarImagen.Text = "+";
             this.btnAgregarImagen.UseVisualStyleBackColor = true;
             this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
@@ -188,7 +188,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(21, 361);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(219, 31);
-            this.btnAceptar.TabIndex = 15;
+            this.btnAceptar.TabIndex = 8;
             this.btnAceptar.Text = "ACEPTAR";
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -201,7 +201,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(427, 361);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(219, 31);
-            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -213,7 +213,7 @@
             this.cbxMarca.Location = new System.Drawing.Point(100, 177);
             this.cbxMarca.Name = "cbxMarca";
             this.cbxMarca.Size = new System.Drawing.Size(170, 21);
-            this.cbxMarca.TabIndex = 17;
+            this.cbxMarca.TabIndex = 3;
             // 
             // cbxCategoria
             // 
@@ -222,7 +222,7 @@
             this.cbxCategoria.Location = new System.Drawing.Point(100, 210);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(170, 21);
-            this.cbxCategoria.TabIndex = 18;
+            this.cbxCategoria.TabIndex = 4;
             // 
             // frmAltaArticulo
             // 
