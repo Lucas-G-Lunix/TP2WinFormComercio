@@ -70,3 +70,4 @@ C:\Users\vboxuser\Source\Repos\tp-winform-equipo-11\AppComercio\obj\Debug\AppCom
 C:\Users\vboxuser\Source\Repos\tp-winform-equipo-11\AppComercio\obj\Debug\AppComercio.csproj.CopyComplete
 C:\Users\vboxuser\Source\Repos\tp-winform-equipo-11\AppComercio\obj\Debug\AppComercio.exe
 C:\Users\vboxuser\Source\Repos\tp-winform-equipo-11\AppComercio\obj\Debug\AppComercio.pdb
+C:\Users\vboxuser\Source\Repos\tp-winform-equipo-11\AppComercio\obj\Debug\AppComercio.frmDetalleArticulo.resources

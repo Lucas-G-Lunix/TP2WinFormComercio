@@ -2,18 +2,23 @@
 using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AppComercio
 {
     public partial class frmAltaArticulo : Form
     {
         private Articulo articulo = null;
+        private OpenFileDialog archivo = null;
         public frmAltaArticulo()
         {
             InitializeComponent();
         }
+
         public frmAltaArticulo(Articulo art)
         {
             InitializeComponent();
@@ -97,12 +102,25 @@ namespace AppComercio
                     negocio.agregar(articulo);
                     MessageBox.Show("Agregado Correctamente!");
                 }
-                /*
                  if (archivo != null && !(txtUrlImagen.Text.ToLower().Contains("http")))
                  {
-                     File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
+                    List<string> listaFileNames = new List<string>();
+                    foreach (string fileName in archivo.FileNames)
+                    {
+                        listaFileNames.Add(fileName);
+                    }
+                    List<string> listaSafeFileNames = new List<string>();
+                    foreach (string safeFileName in archivo.SafeFileNames)
+                    {
+                        listaSafeFileNames.Add(safeFileName);
+                    }
+                    for (int i = 0; i < listaFileNames.Count; i++)
+                    {
+                        string fileName = listaFileNames[i];
+                        string directorioDestino = ConfigurationManager.AppSettings["images-folder"] + listaSafeFileNames[i];
+                        File.Copy(fileName, directorioDestino, true);
+                    }
                  }
-                */
                 Close();
             }
             catch (Exception ex)
@@ -132,12 +150,27 @@ namespace AppComercio
 
         private void txtUrlImagen_TextChanged(object sender, EventArgs e)
         {
-            cargarImagen(txtUrlImagen.Text);
+            List<string> imagenes = (txtUrlImagen.Text).Split(',').ToList();
+            cargarImagen(imagenes[0]);
         }
 
         private void btnAgregarImagen_Click(object sender, EventArgs e)
         {
+            archivo = new OpenFileDialog();
+            archivo.Filter = "Archivos JPG (*.jpg)|*.jpg|Archivos PNG (*.png)|*.png";
+            archivo.Title = "Seleccione una imagen";
+            archivo.Multiselect = true;
+            if (archivo.ShowDialog() == DialogResult.OK)
+            {
+                txtUrlImagen.Text = "";
+                foreach (string item in archivo.FileNames)
+                {
+                    txtUrlImagen.Text += item + ",";
+                }
+                txtUrlImagen.Text = txtUrlImagen.Text.TrimEnd(',');
 
+                cargarImagen(archivo.FileNames[0]);
+            }
         }
 
         private bool validacion()
@@ -179,6 +212,7 @@ namespace AppComercio
             }
             return false;
         }
+
         private bool soloNumeros(string cadena)
         {
             foreach (char caracter in cadena)
@@ -208,6 +242,16 @@ namespace AppComercio
             }
 
             return false;
+        }
+
+        private void txtUrlImagen_MouseClick(object sender, MouseEventArgs e)
+        {
+            toolTipUrlImagenes.SetToolTip(txtUrlImagen, "Por favor, ingrese las imagenes separadas por comas");
+        }
+
+        private void txtUrlImagen_MouseHover(object sender, EventArgs e)
+        {
+            toolTipUrlImagenes.SetToolTip(txtUrlImagen, "Por favor, ingrese las imagenes separadas por comas");
         }
     }
 }

@@ -99,6 +99,7 @@
             this.btnDetalleArticulo.TabIndex = 5;
             this.btnDetalleArticulo.Text = "Detalle Articulo";
             this.btnDetalleArticulo.UseVisualStyleBackColor = true;
+            this.btnDetalleArticulo.Click += new System.EventHandler(this.btnDetalleArticulo_Click);
             // 
             // lblTitulo
             // 

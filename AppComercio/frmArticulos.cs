@@ -130,7 +130,9 @@ namespace AppComercio
             string filtro = txtFiltro.Text;
             if (filtro.Length > 1)
             {
-                listaFiltrada = listaArticulos.FindAll(x => x.Nombre.ToLower().Contains(filtro.ToLower()) ||
+                listaFiltrada = listaArticulos.FindAll(x => 
+                x.Codigo.ToLower().Contains(filtro.ToLower()) || 
+                x.Nombre.ToLower().Contains(filtro.ToLower()) ||
                 x.Marca.Descripcion.ToLower().Contains(filtro.ToLower()) ||
                 x.Categoria.Descripcion.ToLower().Contains(filtro.ToLower()));
             }
@@ -199,19 +201,19 @@ namespace AppComercio
         {
             if (cboCampo.SelectedIndex < 0)
             {
-                MessageBox.Show("Por favor, seleccione el campo para filtrar.");
+                MessageBox.Show("Por favor, seleccione el campo a filtrar.");
                 return true;
             }
             if (cboCriterio.SelectedIndex < 0)
             {
-                MessageBox.Show("Por favor, seleccione el campo para filtrar.");
+                MessageBox.Show("Por favor, seleccione el criterio a filtrar.");
                 return true;
             }
             if (cboCampo.SelectedItem.ToString() == "Precio")
             {
                 if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
                 {
-                    MessageBox.Show("El campo esta vacio");
+                    MessageBox.Show("El campo filtro esta vacio");
                     return true;
                 }
                 if (!(soloNumeros(txtFiltroAvanzado.Text)))
@@ -222,6 +224,7 @@ namespace AppComercio
             }
             return false;
         }
+
         private bool soloNumeros(string cadena)
         {
             foreach (char caracter in cadena)
@@ -275,6 +278,25 @@ namespace AppComercio
                 cboCriterio.Items.Add("Comienza con");
                 cboCriterio.Items.Add("Termina con");
                 cboCriterio.Items.Add("Contiene");
+            }
+        }
+
+        private void btnDetalleArticulo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+                frmDetalleArticulo detalleArticulo = new frmDetalleArticulo(seleccionado);
+                detalleArticulo.ShowDialog();
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("No seleccionaste ningun articulo", "Error en la operacion");
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }
