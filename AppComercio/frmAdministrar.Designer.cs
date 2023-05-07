@@ -191,6 +191,7 @@
             this.Controls.Add(this.dgvCategorias);
             this.Controls.Add(this.dgvMarcas);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(462, 571);
             this.Name = "frmAdministrar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAdministrar";

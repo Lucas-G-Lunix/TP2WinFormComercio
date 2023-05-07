@@ -52,7 +52,7 @@
             // pbxArticulo
             // 
             this.pbxArticulo.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.pbxArticulo.Location = new System.Drawing.Point(574, 31);
+            this.pbxArticulo.Location = new System.Drawing.Point(589, 31);
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(300, 300);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -134,9 +134,9 @@
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAceptar.BackColor = System.Drawing.Color.YellowGreen;
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAceptar.Location = new System.Drawing.Point(52, 363);
+            this.btnAceptar.Location = new System.Drawing.Point(52, 368);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(822, 31);
+            this.btnAceptar.Size = new System.Drawing.Size(837, 31);
             this.btnAceptar.TabIndex = 32;
             this.btnAceptar.Text = "ACEPTAR";
             this.btnAceptar.UseVisualStyleBackColor = false;
@@ -200,7 +200,7 @@
             // 
             // btnCambiarImagenIzquierda
             // 
-            this.btnCambiarImagenIzquierda.Location = new System.Drawing.Point(539, 172);
+            this.btnCambiarImagenIzquierda.Location = new System.Drawing.Point(554, 172);
             this.btnCambiarImagenIzquierda.Name = "btnCambiarImagenIzquierda";
             this.btnCambiarImagenIzquierda.Size = new System.Drawing.Size(29, 29);
             this.btnCambiarImagenIzquierda.TabIndex = 40;
@@ -210,7 +210,7 @@
             // 
             // btnCambiarImagenDerecha
             // 
-            this.btnCambiarImagenDerecha.Location = new System.Drawing.Point(880, 172);
+            this.btnCambiarImagenDerecha.Location = new System.Drawing.Point(895, 172);
             this.btnCambiarImagenDerecha.Name = "btnCambiarImagenDerecha";
             this.btnCambiarImagenDerecha.Size = new System.Drawing.Size(29, 29);
             this.btnCambiarImagenDerecha.TabIndex = 39;
@@ -223,7 +223,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(917, 406);
+            this.ClientSize = new System.Drawing.Size(934, 411);
             this.Controls.Add(this.btnCambiarImagenIzquierda);
             this.Controls.Add(this.btnCambiarImagenDerecha);
             this.Controls.Add(this.lblPrecio);
@@ -242,6 +242,7 @@
             this.Controls.Add(this.lblTituloCodigo);
             this.Controls.Add(this.lblTitulo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(950, 450);
             this.Name = "frmDetalleArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DetalleArticulo";

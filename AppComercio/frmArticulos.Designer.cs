@@ -271,7 +271,7 @@
             this.Controls.Add(this.btnAgregarArticulo);
             this.Controls.Add(this.btnEliminarArticulo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(997, 676);
+            this.MinimumSize = new System.Drawing.Size(1050, 680);
             this.Name = "frmArticulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "App WinForm Grupo 11";
