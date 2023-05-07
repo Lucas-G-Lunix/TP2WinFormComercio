@@ -172,6 +172,11 @@ namespace AppComercio
                 MessageBox.Show("Por favor, ingrese solo numero en el precio", "Error en el ingreso de datos");
                 return true;
             }
+            if (comasEntreImagenes())
+            {
+                MessageBox.Show("Por favor, ingrese comas entra las imagenes", "Error en el ingreso de datos");
+                return true;
+            }
             return false;
         }
         private bool soloNumeros(string cadena)
@@ -185,6 +190,24 @@ namespace AppComercio
                 }
             }
             return true;
+        }
+
+        private bool comasEntreImagenes()
+        {
+            int contador = 0;
+            foreach (char caracter in txtUrlImagen.Text)
+            {
+                if (caracter == ',')
+                {
+                    contador++;
+                }
+            }
+            if (contador == 0)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

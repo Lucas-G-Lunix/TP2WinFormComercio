@@ -2,7 +2,6 @@
 using Negocio;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace AppComercio
@@ -20,11 +19,11 @@ namespace AppComercio
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
             cargarGrilla();
-            cboCampo.Items.Add("Precio");
             cboCampo.Items.Add("Nombre");
             cboCampo.Items.Add("Descripción");
             cboCampo.Items.Add("Marca");
             cboCampo.Items.Add("Categoria");
+            cboCampo.Items.Add("Precio");
         }
 
         private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
@@ -129,7 +128,7 @@ namespace AppComercio
         {
             List<Articulo> listaFiltrada;
             string filtro = txtFiltro.Text;
-            if (filtro.Length > 0)
+            if (filtro.Length > 1)
             {
                 listaFiltrada = listaArticulos.FindAll(x => x.Nombre.ToLower().Contains(filtro.ToLower()) ||
                 x.Marca.Descripcion.ToLower().Contains(filtro.ToLower()) ||
@@ -171,7 +170,7 @@ namespace AppComercio
             {
                 MessageBox.Show(ex.ToString());
             }
-            
+
         }
 
         private void btnCambiarImagenIzquierda_Click(object sender, EventArgs e)
@@ -193,6 +192,89 @@ namespace AppComercio
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private bool validarFiltroAvanzado()
+        {
+            if (cboCampo.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione el campo para filtrar.");
+                return true;
+            }
+            if (cboCriterio.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione el campo para filtrar.");
+                return true;
+            }
+            if (cboCampo.SelectedItem.ToString() == "Precio")
+            {
+                if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
+                {
+                    MessageBox.Show("El campo esta vacio");
+                    return true;
+                }
+                if (!(soloNumeros(txtFiltroAvanzado.Text)))
+                {
+                    MessageBox.Show("Ingrese solo numeros por favor");
+                    return true;
+                }
+            }
+            return false;
+        }
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                //
+                if (!(char.IsNumber(caracter)) && !(caracter == '.'))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private void btnFiltroAvanzado_Click(object sender, EventArgs e)
+        {
+            if (validarFiltroAvanzado())
+            {
+                return;
+            }
+            List<Articulo> listaArticulos = new List<Articulo>();
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            listaArticulos = articuloNegocio.listar();
+            try
+            {
+                Filtros filtros = new Filtros();
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = txtFiltroAvanzado.Text;
+                dgvArticulo.DataSource = filtros.filtrar(campo, criterio, filtro, listaArticulos);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = cboCampo.SelectedItem.ToString();
+            if (opcion == "Precio")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Mayor a");
+                cboCriterio.Items.Add("Menor a");
+                cboCriterio.Items.Add("Igual a");
+            }
+            else
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene");
             }
         }
     }

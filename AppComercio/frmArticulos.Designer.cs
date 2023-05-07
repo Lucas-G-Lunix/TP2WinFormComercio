@@ -57,7 +57,7 @@
             this.btnEliminarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminarArticulo.BackColor = System.Drawing.Color.LightCoral;
             this.btnEliminarArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarArticulo.Location = new System.Drawing.Point(557, 583);
+            this.btnEliminarArticulo.Location = new System.Drawing.Point(549, 583);
             this.btnEliminarArticulo.Name = "btnEliminarArticulo";
             this.btnEliminarArticulo.Size = new System.Drawing.Size(187, 36);
             this.btnEliminarArticulo.TabIndex = 2;
@@ -83,7 +83,7 @@
             this.btnModificarArticulos.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnModificarArticulos.BackColor = System.Drawing.Color.Gold;
             this.btnModificarArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarArticulos.Location = new System.Drawing.Point(292, 583);
+            this.btnModificarArticulos.Location = new System.Drawing.Point(288, 583);
             this.btnModificarArticulos.Name = "btnModificarArticulos";
             this.btnModificarArticulos.Size = new System.Drawing.Size(187, 36);
             this.btnModificarArticulos.TabIndex = 1;
@@ -139,6 +139,7 @@
             this.cboCampo.Name = "cboCampo";
             this.cboCampo.Size = new System.Drawing.Size(121, 21);
             this.cboCampo.TabIndex = 6;
+            this.cboCampo.SelectedIndexChanged += new System.EventHandler(this.cboCampo_SelectedIndexChanged);
             // 
             // lblCampo
             // 
@@ -208,13 +209,14 @@
             this.btnFiltroAvanzado.TabIndex = 9;
             this.btnFiltroAvanzado.Text = "Filtrar";
             this.btnFiltroAvanzado.UseVisualStyleBackColor = true;
+            this.btnFiltroAvanzado.Click += new System.EventHandler(this.btnFiltroAvanzado_Click);
             // 
             // btnAdministrarMarcasCategorias
             // 
             this.btnAdministrarMarcasCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAdministrarMarcasCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(181)))), ((int)(((byte)(171)))));
             this.btnAdministrarMarcasCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdministrarMarcasCategorias.Location = new System.Drawing.Point(771, 583);
+            this.btnAdministrarMarcasCategorias.Location = new System.Drawing.Point(810, 583);
             this.btnAdministrarMarcasCategorias.Name = "btnAdministrarMarcasCategorias";
             this.btnAdministrarMarcasCategorias.Size = new System.Drawing.Size(187, 36);
             this.btnAdministrarMarcasCategorias.TabIndex = 3;
